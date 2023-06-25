@@ -28,7 +28,10 @@ export class WarriorRecord {
 
     static async getOne(id:string):Promise<WarriorRecord | null>{
 
-        const [results] = await pool.execute("SELECT * FROM `wojownicy` WHERE `id` = :id", {
+        const [results] = await pool.execute(
+            "SELECT * FROM " +
+            "SELECT * FROM `wojownicy` JOIN `statystyki` JOIN `bilans` ON `wojownicy`.`name` = `statystyki`.`wojownicy_name` AND `wojownicy`.`name` = `bilans`.`wojownicy_name` WHERE `wojownicy`.`id` = :id",
+            {
             id,
         }) as results
 
@@ -36,7 +39,7 @@ export class WarriorRecord {
     }
 
     static async listAll():Promise<WarriorRecord[]> {
-        const [results] = (await pool.execute("SELECT * FROM `wojownicy` ORDER BY `name` ASC")) as results;
+        const [results] = (await pool.execute("SELECT * FROM `wojownicy` JOIN `statystyki` JOIN `bilans` ON `wojownicy`.`name` = `statystyki`.`wojownicy_name` AND `wojownicy`.`name` = `bilans`.`wojownicy_name` ORDER BY `name` ASC")) as results;
 
         return results.map(obj => new WarriorRecord(obj));
     }
