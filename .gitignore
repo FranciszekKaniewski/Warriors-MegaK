@@ -1,0 +1,9 @@
+.env
+dist/
+node_modules/
+*.log
+!example.log
+.iws
+workspace.xml
+tasks.xml
+.idea/
