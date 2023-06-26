@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node index.ts",
+    "start-db-test": "ts-node records/test.ts",
     "start:dev": "tsnd index.ts"
   },
   "author": "",

@@ -1,8 +1,16 @@
 <h2>Home</h2>
-<ul>
+<div class="warriors-home">
     {{#each WarriorsList}}
-        <li>
-            Wojownik:{{this.name}}Hp{{this.hp}}
-        </li>
+        <div class="warrior">
+            <h3>Wojownik <br> {{this.name}} | Hp:{{this.hp}}</h3>
+            <h4>Stats:
+                <ul>
+                    <li>strength:{{this.strength}}</li>
+                    <li>intelligence:{{this.intelligence}}</li>
+                    <li>dexterity:{{this.dexterity}}</li>
+                </ul>
+            </h4>
+        </div>
     {{/each}}
-</ul>
+</div>
+{{>go-arena}}
