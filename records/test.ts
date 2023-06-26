@@ -18,5 +18,7 @@ import {WarriorRecord} from "./warrior-record";
     //Delete one
     // await WarriorRecord.deleteOne(newObjId);
 
+    // await WarriorRecord.listAll().map(e=>console.log(e))
+
 
 })()
