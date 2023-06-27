@@ -30,9 +30,9 @@ export class WarriorRecord implements EO{
         this.id = obj.id ?? uuid();
         this.name = obj.name;
         this.hp = obj.hp;
-        this.strength = obj.strength;
-        this.intelligence = obj.intelligence;
-        this.dexterity= obj.dexterity;
+        this.strength = obj.strength + 1;
+        this.intelligence = obj.intelligence + 1;
+        this.dexterity= obj.dexterity + 1;
     };
 
     static async listAll():Promise<WarriorRecord[]> {
@@ -71,5 +71,12 @@ export class WarriorRecord implements EO{
         });
 
         return this.id;
+    }
+
+    async damage(damage:number){
+        await pool.execute("UPDATE `wojownicy` SET `hp`= :hp Where `id`=:id",{
+            id:this.id,
+            hp:this.hp -= damage
+        })
     }
 }

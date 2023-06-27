@@ -19,8 +19,11 @@ function init() {
     });
     form.addEventListener('submit', async e => {
         e.preventDefault();
+
+        console.log(checkValidation())
         if (!checkValidation()) return;
-        const response = await fetch('http://localhost:3000/warriors/add', {
+
+        const response = await fetch('http://localhost:3000/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -97,7 +100,7 @@ function checkValidation() {
 function reset() {
     nameInp.value = '';
     points = 10;
-    hp = 0;
+    hp = 10;
     strength = 0;
     intelligence = 0;
     dexterity = 0;

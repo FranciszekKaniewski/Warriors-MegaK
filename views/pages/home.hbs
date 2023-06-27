@@ -2,7 +2,8 @@
 <div class="warriors-home">
     {{#each WarriorsList}}
         <div class="warrior">
-            <h3>Wojownik <br> {{this.name}} | Hp:{{this.hp}}</h3>
+            <div class="delete">❌</div>
+            <h3>Wojownik <br> <span class="name">{{this.name}}</span> | Hp:{{this.hp}}</h3>
             <h4>Stats:
                 <ul>
                     <li>strength:{{this.strength}}</li>
@@ -15,3 +16,4 @@
 </div>
 {{>add-form}}
 {{>go-arena}}
+<script src="/js/delete.js"></script>
